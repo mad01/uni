@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Local task",
+    "description": "This should be stored in .uni directory",
+    "status": "cancel",
+    "created_at": "2025-06-21T11:23:17.360495+02:00",
+    "updated_at": "2025-06-21T11:23:21.417187+02:00"
+  },
+  {
+    "id": 2,
+    "name": "Test new add command",
+    "description": "Testing the new flag-based add command",
+    "status": "blocked",
+    "created_at": "2025-06-21T11:37:59.607557+02:00",
+    "updated_at": "2025-06-21T11:39:57.281354+02:00"
+  },
+  {
+    "id": 3,
+    "name": "Short flags test",
+    "description": "Testing short flag versions",
+    "status": "working",
+    "created_at": "2025-06-21T11:38:46.488556+02:00",
+    "updated_at": "2025-06-21T11:40:08.74848+02:00"
+  }
+]
