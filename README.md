@@ -16,8 +16,45 @@ A super minimal task management CLI written in Go using the spf13/cobra framewor
 
 ## Installation
 
+### Option 1: Go Install (Recommended)
 ```bash
+go install github.com/mad01/uni@latest
+```
+
+### Option 2: Download Binary
+Download the latest release for your platform from the [releases page](https://github.com/mad01/uni/releases).
+
+**Available platforms:**
+- macOS (Intel): `uni_Darwin_x86_64.tar.gz`
+- macOS (Apple Silicon): `uni_Darwin_arm64.tar.gz`
+- Linux (Intel): `uni_Linux_x86_64.tar.gz`
+- Linux (ARM64): `uni_Linux_arm64.tar.gz`
+
+**Install downloaded binary:**
+```bash
+# Extract the binary
+tar -xzf uni_*.tar.gz
+
+# Move to PATH
+sudo mv uni /usr/local/bin/
+
+# Make executable (if needed)
+chmod +x /usr/local/bin/uni
+```
+
+### Option 3: Build from Source
+```bash
+git clone https://github.com/mad01/uni.git
+cd uni
+
+# Simple build
 go build -o uni
+
+# Build with version info (recommended for development)
+make build
+
+# See all build options
+make help
 ```
 
 ## Usage
@@ -118,4 +155,60 @@ The project includes comprehensive unit tests covering:
 - Status updates
 - Filtering functionality
 - Data persistence
-- Edge cases and error handling 
+- Edge cases and error handling
+
+## CI/CD
+
+The project uses GitHub Actions for continuous integration and automated releases:
+
+- **Continuous Integration**: Runs tests, vet, and format checks on every push
+- **Automated Releases**: Creates releases with cross-platform binaries when tags are pushed
+- **Snapshot Builds**: Creates development builds on pushes to main branch
+
+### Creating a Release
+
+The project includes a built-in version bump command:
+
+```bash
+# Bump patch version (v1.0.0 -> v1.0.1)
+uni bump patch
+
+# Bump minor version (v1.0.1 -> v1.1.0)  
+uni bump minor
+
+# Bump major version (v1.1.0 -> v2.0.0)
+uni bump major
+
+# Preview what would happen
+uni bump patch --dry-run
+```
+
+Or manually create a release:
+
+```bash
+# Tag a new version
+git tag v1.0.0
+
+# Push the tag
+git push origin v1.0.0
+```
+
+This will automatically trigger the release workflow and create:
+- GitHub release with changelog
+- Cross-platform binaries (macOS/Linux, AMD64/ARM64)
+- Checksums for verification
+
+### Development Builds
+
+For local development with proper version info:
+
+```bash
+# Build with git hash and version info
+make build
+
+# Check version info before building
+make version
+
+# Development workflow
+make dev  # lint, test, and build
+``` 
