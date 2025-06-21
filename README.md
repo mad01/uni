@@ -1,6 +1,10 @@
-# uni
-
-A super minimal task management CLI written in Go using the spf13/cobra framework.
+<div align="center">
+  <img src="assets/logo.png" alt="uni logo" width="128" height="128">
+  
+  # uni
+  
+  A super minimal task management CLI written in Go using the spf13/cobra framework.
+</div>
 
 ## Features
 
